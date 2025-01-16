@@ -1,5 +1,6 @@
 "use client";
 import Discount from "./Components/Discount";
+import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Hero from "./Components/Hero";
 import Popular_topics from "./Components/Popular_topics";
@@ -16,6 +17,7 @@ export default function Home() {
       <ProducetSection />
       <Popular_topics />
       <Team />
+      <Footer />
     </div>
   );
 }
