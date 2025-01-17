@@ -3,10 +3,8 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from "next/navigation";
-import { UserButton, useUser } from '@clerk/nextjs';
 import Sidbar from './Sidbar';
 function Navbar() {
-  const { isSignedIn } = useUser();
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -76,46 +74,17 @@ function Navbar() {
             </div>
           </div>
 
-          {isSignedIn ? (
-            <div className='flex gap-3'>
-              <div className="flex items-center space-x-2 md:hidden">
-                <button onClick={toggleSearch} aria-label="Search"
-              className="p-2 text-gray-500 rounded-lg hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
-            >
-              <svg
-                className="w-6 h-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                />
-              </svg>
-                </button>
-              </div>
-              <button type="button" onClick={toggleMenu} aria-expanded={menuOpen}
-              aria-label="Toggle navigation menu"
-              className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
-            >
-              {menuOpen ? closeIcon : menuIcon}
-            </button>
-              <UserButton afterSwitchSessionUrl="/" />
-            </div>
-          ) : (
             <div className="flex items-center space-x-4">
              <div className='hidden md:flex gap-3'>
-             <Link href="/sign-in"
+             <Link href="/login"
                 className="py-2 px-4 text-sm font-medium text-purple-700 border border-purple-700 rounded-lg hover:bg-purple-800 hover:text-white focus:outline-none focus:ring-purple-500 focus:ring-offset-2"
               > Login </Link>
-              <Link href="/sign-up"
+              <Link href="/Register"
                 className="py-2 px-4 text-sm font-medium text-purple-700 border border-purple-700 rounded-lg hover:bg-purple-700 hover:text-white focus:outline-none focus:ring-purple-500 focus:ring-offset-2"
               > Register </Link>
              </div>
+            </div>
+            <div className='flex gap-3'>
               <div className="flex items-center space-x-2 md:hidden">
                 <button onClick={toggleSearch} aria-label="Search"
               className="p-2 text-gray-500 rounded-lg hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
@@ -143,7 +112,6 @@ function Navbar() {
               {menuOpen ? closeIcon : menuIcon}
             </button>
             </div>
-          )}
         </div>
       </div>
 
@@ -156,18 +124,16 @@ function Navbar() {
       )}
       {menuOpen && (
         <div>
-          {isSignedIn ? (<Sidbar />) : (
           <div className="">
             <div className="px-4 pt-2 pb-3 space-y-3">
-              <Link href="/sign-in"
+              <Link href="/login"
                 className="block w-full py-2 px-4 text-center text-sm font-medium text-purple-700 border border-purple-700 rounded-lg hover:bg-purple-700 hover:text-white"
                 > Login </Link>
-              <Link href="/sign-up"
+              <Link href="/Register"
                 className="block w-full py-2 px-4 text-center text-sm font-medium text-purple-700 border border-purple-700 rounded-lg hover:bg-purple-700 hover:text-white"
                 > Register </Link>
               </div>
             </div>
-          )}
           </div>
         )}
     </nav>
