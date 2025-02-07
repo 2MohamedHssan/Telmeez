@@ -170,7 +170,7 @@ const onSubmitre: SubmitHandler<FormField> = async (data)=>{
           Continue with Google
         </button>
         <div className=" text-right mt-2">
-        <Link href="/Login" className="text-gray-500 text-sm py-2 font-medium hover:text-gray-800">Alredy have account </Link>
+        <Link href="./login" className="text-gray-500 text-sm py-2 font-medium hover:text-gray-800">Alredy have account </Link>
       </div>
       </form>
     </div>

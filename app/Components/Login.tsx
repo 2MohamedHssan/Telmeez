@@ -54,7 +54,7 @@ const Login = () => {
         </div>
 
         <button type="submit" disabled={isSubmitting}
-          className="w-full text-white font-semibold py-2 rounded-md transition-colors">
+          className="w-full text-white bg-orange-500 font-semibold py-2 rounded-md transition-colors">
           {isSubmitting ? "Loading..." : "Submit"}
         </button>
 

@@ -6,6 +6,7 @@ import Hero from "./Components/Hero";
 import Popular_topics from "./Components/Popular_topics";
 import ProducetSection from "./Components/ProducetSection";
 import Team from "./Components/Team";
+import Cookies from "./Components/Cookies";
 
 export default function Home() {
 
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <Header />
       <Discount />
+      <Cookies />
       <ProducetSection />
       <Popular_topics />
       <Team />
